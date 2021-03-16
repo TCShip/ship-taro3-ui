@@ -1,11 +1,11 @@
 {
-  "name": "taro-uilib-react",
-  "version": "0.0.1",
+  "name": "ship-taro-ui",
+  "version": "2.0.0",
   "browser": "dist/index.umd.js",
   "module": "dist/index.esm.js",
   "main": "dist/index.js",
   "source": "src/index.ts",
-  "description": "Taro UI 库 React 版本范例",
+  "description": "ship-taro-ui 船票 taro组件",
   "types": "types/index.d.ts",
   "files": [
     "lib",
