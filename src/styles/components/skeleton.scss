@@ -1,0 +1,112 @@
+
+$skeleton-animation-blink-duration: 1.2s;
+$skeleton-animation-elastic-duration: .8s;
+$skeleton-row-height: 24px;
+$skeleton-row-margin-top: 20px;
+$skeleton-row-background-color: #f2f3f5;
+.skeleton {
+  padding: 20px 30px;
+  background: #fff;
+  line-height: 20px;
+  &-type {
+    &-column {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      .skeleton-content {
+        // text-align: center;
+      }
+      .skeleton-avatar {
+        margin: 0 20px;
+      }
+      .skeleton-row {
+        display: inline-block;
+        margin: 0 10px;
+      }
+    }
+    &-row {
+      display: flex;
+      align-items: center;
+    }
+  }
+  &-content {
+    flex: 1;
+    padding-top: 16px;
+  }
+  &-row {
+    border-radius: 4px;
+    height: $skeleton-row-height;
+    background-color: $skeleton-row-background-color;
+  }
+ 
+  &-row:not(:first-child) {
+    margin-top: $skeleton-row-margin-top;
+  }
+
+  &-animate {
+    &-blink {
+      animation: skeleton-blink $skeleton-animation-blink-duration ease-in-out infinite;
+    }
+    &-elastic {
+      .skeleton {
+        &-row {
+          transform-origin: left center;
+
+          animation: skeleton-elastic $skeleton-animation-elastic-duration ease-in-out infinite;
+        }
+      }
+    }
+  }
+
+  &-matrix {
+      &-rows {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .skeleton-matrix-col {
+            &:first-child {
+                .skeleton-matrix-row {
+                    margin-left: 0;
+                }
+            }
+            &:last-child {
+                .skeleton-matrix-row {
+                    margin-right: 0;
+                }
+            }
+        }
+      }
+      &-rows:first-child {
+          .skeleton-matrix-col {
+            .skeleton-matrix-row:first-child {
+                margin-top: 0;
+            }
+          }
+      }
+      &-row {
+        border-radius: 4px;
+        height: $skeleton-row-height;
+        background-color: $skeleton-row-background-color;
+        margin: 0 $skeleton-row-margin-top;
+        margin-top: $skeleton-row-margin-top;
+      }
+      &-col {
+          flex: 1;
+      }
+  }
+}
+@keyframes skeleton-blink {
+  50% {
+    opacity: .6;
+  }
+}
+@keyframes skeleton-elastic {
+  50% {
+    transform: scaleX(.3);
+  }
+  // to {
+  //   transform: scaleX(0);
+  // }
+}
