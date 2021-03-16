@@ -190,7 +190,7 @@ export default class AtIndexes extends AtComponent<AtIndexesProps, AtIndexesStat
             isWEB
         } = this.state
 
-        const toastStyle = { minWidth: Taro.pxTransform(100) }
+        const toastStyle = { minWidth: Taro.pxTransform(100, 750) }
         const rootCls = classNames('at-indexes', className)
 
         const menuList = list.map((dataList, i) => {

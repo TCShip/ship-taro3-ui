@@ -204,7 +204,7 @@ export default class AtInputNumber extends AtComponent<AtInputNumberProps> {
         // const placeholderCls = classnames('placeholder', placeholderClass)
 
         const inputStyle = {
-        width: width ? `${Taro.pxTransform(width)}` : ''
+        width: width ? `${Taro.pxTransform(width, 750)}` : ''
         }
         const inputValue = this.handleValue(value)
         // const rootCls = classnames('at-input-number', {
