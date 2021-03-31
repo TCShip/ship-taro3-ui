@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro'
+// import Taro from '@tarojs/taro'
 // import './styles/index.scss'
 // import './styles/themes/red.scss'
 // import './styles/themes/purple.scss'
