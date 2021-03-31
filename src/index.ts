@@ -3,7 +3,7 @@ import Taro from '@tarojs/taro'
 // import './styles/themes/red.scss'
 // import './styles/themes/purple.scss'
 
-Taro.initPxTransform({ designWidth: 750, deviceRatio: {} })
+// Taro.initPxTransform({ designWidth: 750, deviceRatio: {} })
 
 export { default as AtActionSheet } from './components/AtActionSheet/AtActionSheet'
 export { default as AtActionSheetItem } from './components/AtActionSheetItem/AtActionSheetItem'
