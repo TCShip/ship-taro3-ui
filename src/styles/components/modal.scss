@@ -57,7 +57,7 @@ $at-modal-duration: 200ms;
     .at-modal__action {
       @include display-flex;
 
-      & > button {
+      & > .at-modal__btn {
         @include flex(auto);
         @include line(1);
         @include active;
@@ -90,7 +90,7 @@ $at-modal-duration: 200ms;
       }
     }
 
-    &--simple .at-modal__action > button:last-child:nth-child(2) {
+    &--simple .at-modal__action > .at-modal__btn:last-child:nth-child(2) {
       color: $at-modal-btn-confirm-color;
     }
   }

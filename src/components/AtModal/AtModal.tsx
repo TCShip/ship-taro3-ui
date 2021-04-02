@@ -116,10 +116,10 @@ export default class AtModal extends AtComponent<AtModalProps, AtModalState> {
                 {isRenderAction && (
                 <AtModalAction isSimple>
                     {cancelText && (
-                    <Button onClick={this.handleCancel}>{cancelText}</Button>
+                    <Button className='at-modal__btn' onClick={this.handleCancel}>{cancelText}</Button>
                     )}
                     {confirmText && (
-                    <Button onClick={this.handleConfirm}>{confirmText}</Button>
+                    <Button className='at-modal__btn' onClick={this.handleConfirm}>{confirmText}</Button>
                     )}
                 </AtModalAction>
                 )}
