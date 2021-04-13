@@ -60,10 +60,11 @@ export default {
     RollupCopy({
       targets: [
         {
-          src: resolveFile('src/styles'),
-          dest: resolveFile('dist')
+          src: 'src/styles',
+          dest: 'dist'
         }
-      ]
+      ],
+      verbose: true
     })
   ]
 }
