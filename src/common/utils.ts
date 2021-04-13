@@ -48,14 +48,12 @@ function delay(delayTime = 500): Promise<null> {
 }
 
 function delayQuerySelector(
-  self,
   selectorStr: string,
   delayTime = 500
 ): Promise<Array<any>> {
-  const selector: SelectorQuery = Taro.createSelectorQuery()
   return new Promise(resolve => {
     delay(delayTime).then(() => {
-      selector
+      Taro.createSelectorQuery()
         .select(selectorStr)
         .boundingClientRect()
         .exec((res: Array<any>) => {
@@ -79,7 +77,6 @@ function delayGetScrollOffset({ delayTime = 500 }): Promise<Array<any>> {
 }
 
 function delayGetClientRect({
-  self,
   selectorStr,
   delayTime = 500
 }): Promise<Array<any>> {

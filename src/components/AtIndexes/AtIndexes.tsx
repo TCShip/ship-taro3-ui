@@ -89,7 +89,7 @@ export default class AtIndexes extends AtComponent<AtIndexesProps, AtIndexesStat
         const _tipText = idx === 0 ? topKey! : list[idx - 1].key
 
         if (ENV === Taro.ENV_TYPE.WEB) {
-            delayQuerySelector(this, '.at-indexes', 0)
+            delayQuerySelector('.at-indexes', 0)
                 .then(rect => {
                     const targetOffsetTop = this.listRef.childNodes[idx].offsetTop
                     const _scrollTop = targetOffsetTop - rect[0].top
@@ -140,7 +140,7 @@ export default class AtIndexes extends AtComponent<AtIndexesProps, AtIndexesStat
     }
 
     private initData(): void {
-        delayQuerySelector(this, '.at-indexes__menu')
+        delayQuerySelector('.at-indexes__menu')
             .then(rect => {
                 const len = this.props.list.length
                 this.menuHeight = rect[0].height
