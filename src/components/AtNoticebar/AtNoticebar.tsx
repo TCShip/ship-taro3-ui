@@ -65,8 +65,7 @@ export default class AtNoticebar extends AtComponent<AtNoticeBarProps, AtNoticeB
             const dura = width / (+this.props.speed!)
             this.setState({ dura })
           } else if (isWEAPP || isALIPAY) {
-            // @ts-ignore
-            const query = isALIPAY ? Taro.createSelectorQuery() : Taro.createSelectorQuery().in(this.$scope)
+            const query = Taro.createSelectorQuery()
             query.select(`.${this.state.animElemId}`).boundingClientRect().exec(res => {
               const queryRes = res[0]
               if (!queryRes) return

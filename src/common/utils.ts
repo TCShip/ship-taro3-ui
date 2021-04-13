@@ -52,8 +52,7 @@ function delayQuerySelector(
   selectorStr: string,
   delayTime = 500
 ): Promise<Array<any>> {
-  const $scope = ENV === Taro.ENV_TYPE.WEB ? self : self.$scope
-  const selector: SelectorQuery = Taro.createSelectorQuery().in($scope)
+  const selector: SelectorQuery = Taro.createSelectorQuery()
   return new Promise(resolve => {
     delay(delayTime).then(() => {
       selector
@@ -84,10 +83,7 @@ function delayGetClientRect({
   selectorStr,
   delayTime = 500
 }): Promise<Array<any>> {
-  const $scope =
-    ENV === Taro.ENV_TYPE.WEB || ENV === Taro.ENV_TYPE.SWAN ? self : self.$scope
-  const selector: SelectorQuery = Taro.createSelectorQuery().in($scope)
-
+  const selector: SelectorQuery = Taro.createSelectorQuery()
   return new Promise(resolve => {
     delay(delayTime).then(() => {
       selector
