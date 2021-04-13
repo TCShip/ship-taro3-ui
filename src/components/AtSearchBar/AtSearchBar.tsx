@@ -126,7 +126,7 @@ export default class AtSearchBar extends AtComponent<AtSearchBarProps, AtSearchB
                   value={value}
                   focus={isFocus}
                   disabled={disabled}
-                  maxLength={maxLength}
+                  maxlength={maxLength}
                   onInput={this.handleChange}
                   onFocus={this.handleFocus}
                   onBlur={this.handleBlur}

@@ -3,7 +3,6 @@ import { SelectorQuery } from '@tarojs/taro/types/index'
 import _assign from 'lodash/assign'
 import _keys from 'lodash/keys'
 
-
 const objectToString = style => {
     if (style && typeof style === 'object') {
       let styleStr = ''
@@ -51,28 +50,37 @@ function delayQuerySelector(
   selectorStr: string,
   delayTime = 500
 ): Promise<Array<any>> {
-  return new Promise(resolve => {
-    delay(delayTime).then(() => {
-      Taro.createSelectorQuery()
-        .select(selectorStr)
-        .boundingClientRect()
-        .exec((res: Array<any>) => {
-          resolve(res)
-        })
-    })
+  return new Promise((resolve, reject) => {
+    try {
+      const selector: SelectorQuery = Taro.createSelectorQuery()
+      delay(delayTime).then(() => {
+        selector
+          .select(selectorStr)
+          .boundingClientRect()
+          .exec((res: Array<any>) => {
+            resolve(res)
+          })
+      })
+    } catch(error) {
+      reject(error)
+    }
   })
 }
 
 function delayGetScrollOffset({ delayTime = 500 }): Promise<Array<any>> {
-  return new Promise(resolve => {
-    delay(delayTime).then(() => {
-      Taro.createSelectorQuery()
-        .selectViewport()
-        .scrollOffset()
-        .exec((res: Array<any>) => {
-          resolve(res)
-        })
-    })
+  return new Promise((resolve, reject) => {
+    try {
+      delay(delayTime).then(() => {
+        Taro.createSelectorQuery()
+          .selectViewport()
+          .scrollOffset()
+          .exec((res: Array<any>) => {
+            resolve(res)
+          })
+      })
+    } catch(error) {
+      reject(error)
+    }
   })
 }
 
@@ -81,15 +89,19 @@ function delayGetClientRect({
   delayTime = 500
 }): Promise<Array<any>> {
   const selector: SelectorQuery = Taro.createSelectorQuery()
-  return new Promise(resolve => {
-    delay(delayTime).then(() => {
-      selector
-        .select(selectorStr)
-        .boundingClientRect()
-        .exec((res: Array<any>) => {
-          resolve(res)
-        })
-    })
+  return new Promise((resolve, reject) => {
+    try {
+      delay(delayTime).then(() => {
+        selector
+          .select(selectorStr)
+          .boundingClientRect()
+          .exec((res: Array<any>) => {
+            resolve(res)
+          })
+      })
+    } catch(error) {
+      reject(error)
+    }
   })
 }
 

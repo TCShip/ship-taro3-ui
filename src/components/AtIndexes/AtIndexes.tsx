@@ -7,7 +7,7 @@ import { AtIndexesProps, AtIndexesState } from 'types/indexes'
 import _findIndex from 'lodash/findIndex'
 import { ITouchEvent, CommonEvent } from '@tarojs/components/types/common'
 import { View, ScrollView } from '@tarojs/components';
-import { delayQuerySelector, uuid, initTestEnv, isTest } from '../../common/utils';
+import { uuid, initTestEnv, isTest } from '../../common/utils';
 import AtToast from '../AtToast/AtToast';
 import AtList from '../AtList/AtList';
 import AtListItem from '../AtListItem/AtListItem';
@@ -22,18 +22,18 @@ export interface Item {
     [propName: string]: any
 }
 initTestEnv()
-const ENV = Taro.getEnv()
+// const ENV = Taro.getEnv()
 
 export default class AtIndexes extends AtComponent<AtIndexesProps, AtIndexesState> {
     public static defaultProps: AtIndexesProps
     public static propTypes: InferProps<AtIndexesProps>
-    private menuHeight: number
+    // private menuHeight: number
     private startTop: number
     private itemHeight: number
     private currentIndex: number
     private listId: string
     private timeoutTimer: NodeJS.Timeout | number | undefined
-    private listRef: any
+    // private listRef: any
     constructor(props: AtIndexesProps) {
         super(props);
         
@@ -45,7 +45,7 @@ export default class AtIndexes extends AtComponent<AtIndexesProps, AtIndexesStat
             isWEB: Taro.getEnv() === Taro.ENV_TYPE.WEB,
         };
         // 右侧导航高度
-        this.menuHeight = 0
+        // this.menuHeight = 0
         // 右侧导航距离顶部高度
         this.startTop = 0
         // 右侧导航元素高度
@@ -88,19 +88,19 @@ export default class AtIndexes extends AtComponent<AtIndexesProps, AtIndexesStat
         const { topKey, list } = this.props
         const _tipText = idx === 0 ? topKey! : list[idx - 1].key
 
-        if (ENV === Taro.ENV_TYPE.WEB) {
-            delayQuerySelector('.at-indexes', 0)
-                .then(rect => {
-                    const targetOffsetTop = this.listRef.childNodes[idx].offsetTop
-                    const _scrollTop = targetOffsetTop - rect[0].top
-                    this.updateState({
-                        _scrollTop,
-                        _scrollIntoView,
-                        _tipText,
-                    })
-                })
-            return
-        }
+        // if (ENV === Taro.ENV_TYPE.WEB) {
+        //     delayQuerySelector('.at-indexes', 0)
+        //         .then(rect => {
+        //             const targetOffsetTop = this.listRef.childNodes[idx].offsetTop
+        //             const _scrollTop = targetOffsetTop - rect[0].top
+        //             this.updateState({
+        //                 _scrollTop,
+        //                 _scrollIntoView,
+        //                 _tipText,
+        //             })
+        //         })
+        //     return
+        // }
 
         this.updateState({
             _scrollIntoView,
@@ -116,7 +116,9 @@ export default class AtIndexes extends AtComponent<AtIndexesProps, AtIndexesStat
     }
 
     private updateState(state: Partial<AtIndexesState>): void {
-        const { isShowToast, isVibrate } = this.props
+        const { isShowToast
+            // , isVibrate 
+        } = this.props
         const { _scrollIntoView, _tipText, _scrollTop } = state
         // TODO: Fix dirty hack
         this.setState({
@@ -134,20 +136,20 @@ export default class AtIndexes extends AtComponent<AtIndexesProps, AtIndexesStat
             }, 3000)
         })
 
-        if (isVibrate) {
-            Taro.vibrateShort()
-        }
+        // if (isVibrate) {
+        //     Taro.vibrateShort()
+        // }
     }
 
-    private initData(): void {
-        delayQuerySelector('.at-indexes__menu')
-            .then(rect => {
-                const len = this.props.list.length
-                this.menuHeight = rect[0].height
-                this.startTop = rect[0].top
-                this.itemHeight = Math.floor((this.menuHeight) / (len + 1))
-            })
-    }
+    // private initData(): void {
+    //     delayQuerySelector('.at-indexes__menu')
+    //         .then(rect => {
+    //             const len = this.props.list.length
+    //             this.menuHeight = rect[0].height
+    //             this.startTop = rect[0].top
+    //             this.itemHeight = Math.floor((this.menuHeight) / (len + 1))
+    //         })
+    // }
 
     private handleScroll(e: CommonEvent): void {
         if (e && e.detail) {
@@ -157,17 +159,20 @@ export default class AtIndexes extends AtComponent<AtIndexesProps, AtIndexesStat
         }
     }
 
-    public componentWillReceiveProps(nextProps: AtIndexesProps): void {
-        if (nextProps.list.length !== this.props.list.length) {
-            this.initData()
-        }
-    }
+    // public componentWillReceiveProps(nextProps: AtIndexesProps): void {
+    //     // if (nextProps.list.length !== this.props.list.length) {
+    //     //     this.initData()
+    //     // }
+    // }
 
     public componentDidMount(): void {
-        if (ENV === Taro.ENV_TYPE.WEB) {
-            this.listRef = document.getElementById(this.listId)
-        }
-        this.initData()
+        // const that = this
+        // if (ENV === Taro.ENV_TYPE.WEB) {
+        //     this.listRef = document.getElementById(this.listId)
+        // }
+        // setTimeout(() => {
+        //     that.initData()
+        // }, 50)
     }
 
     public componentWillMount(): void {
@@ -183,11 +188,11 @@ export default class AtIndexes extends AtComponent<AtIndexesProps, AtIndexesStat
             list,
         } = this.props
         const {
-            _scrollTop,
+            // _scrollTop,
             _scrollIntoView,
             _tipText,
             _isShowToast,
-            isWEB
+            // isWEB
         } = this.state
 
         const toastStyle = { minWidth: Taro.pxTransform(100, 750) }
@@ -250,8 +255,8 @@ export default class AtIndexes extends AtComponent<AtIndexesProps, AtIndexesStat
                   id={this.listId}
                   scrollY
                   scrollWithAnimation={animation}
-                  scrollTop={isWEB ? _scrollTop : undefined}
-                  scrollIntoView={!isWEB ? _scrollIntoView : ''}
+                //   scrollTop={isWEB ? _scrollTop : undefined}
+                  scrollIntoView={_scrollIntoView}
                   onScroll={this.handleScroll.bind(this)}
                 >
                     <View className='at-indexes__content' id='at-indexes__top'>
