@@ -67,43 +67,6 @@ function delayQuerySelector(
   })
 }
 
-function delayGetScrollOffset({ delayTime = 500 }): Promise<Array<any>> {
-  return new Promise((resolve, reject) => {
-    try {
-      delay(delayTime).then(() => {
-        Taro.createSelectorQuery()
-          .selectViewport()
-          .scrollOffset()
-          .exec((res: Array<any>) => {
-            resolve(res)
-          })
-      })
-    } catch(error) {
-      reject(error)
-    }
-  })
-}
-
-function delayGetClientRect({
-  selectorStr,
-  delayTime = 500
-}): Promise<Array<any>> {
-  const selector: SelectorQuery = Taro.createSelectorQuery()
-  return new Promise((resolve, reject) => {
-    try {
-      delay(delayTime).then(() => {
-        selector
-          .select(selectorStr)
-          .boundingClientRect()
-          .exec((res: Array<any>) => {
-            resolve(res)
-          })
-      })
-    } catch(error) {
-      reject(error)
-    }
-  })
-}
 
 function uuid(len = 8, radix = 16): string {
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('')
@@ -191,8 +154,6 @@ function pxTransform(size: number): string {
 export {
   mergeStyle,
   delayQuerySelector,
-  delayGetScrollOffset,
-  delayGetClientRect,
   uuid,
   initTestEnv,
   handleTouchScroll,
