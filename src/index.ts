@@ -59,3 +59,5 @@ export { default as AtLoading } from './components/AtLoading/AtLoading'
 // export { default as AtComponent } from './common/component'
 
 export { default as Skeleton } from './components/Skeleton/Skeleton'
+
+export { default as ParserRichText } from './components/ParserRichText/ParserRichText'

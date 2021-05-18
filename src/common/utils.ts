@@ -2,6 +2,7 @@ import Taro from '@tarojs/taro'
 import { SelectorQuery } from '@tarojs/taro/types/index'
 import _assign from 'lodash/assign'
 import _keys from 'lodash/keys'
+import parse from 'mini-html-parser2';
 
 const objectToString = style => {
     if (style && typeof style === 'object') {
@@ -150,6 +151,18 @@ function pxTransform(size: number): string {
     if (!size) return ''
     return Taro.pxTransform(size, 750)
   }
+
+  
+export const htmlParseToNodes = async (html, cb) => {
+  const isAlipay = Taro.getEnv() === Taro.ENV_TYPE.ALIPAY
+  if(isAlipay) {
+      parse(html, (err, _nodes) => {
+          cb && cb(_nodes)
+      })
+      return
+  }
+  cb && cb(html)
+}
 
 export {
   mergeStyle,

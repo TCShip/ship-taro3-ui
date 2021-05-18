@@ -51,6 +51,7 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
     "jest": "26",
+    "mini-html-parser2": "^0.3.0",
     "rimraf": "3.0.2",
     "rollup": "^2.16.1",
     "rollup-plugin-copy": "^3.3.0",
