@@ -154,10 +154,14 @@ function pxTransform(size: number): string {
 
   
 export const htmlParseToNodes = async (html, cb) => {
-  const isAlipay = Taro.getEnv() === Taro.ENV_TYPE.ALIPAY
-  if(isAlipay) {
+  const isAliPay = Taro.getEnv() === Taro.ENV_TYPE.ALIPAY
+  if(isAliPay) {
       parse(html, (err, _nodes) => {
-          cb && cb(_nodes)
+        if(err) {
+          cb && cb([])
+          return
+        }
+        cb && cb(_nodes)
       })
       return
   }

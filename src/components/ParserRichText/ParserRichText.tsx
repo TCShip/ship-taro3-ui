@@ -1,4 +1,4 @@
-import react, { Component } from 'react'
+import React, { Component } from 'react';
 import Taro from '@tarojs/taro';
 import { RichText } from '@tarojs/components';
 
@@ -108,17 +108,17 @@ class ParserRichText extends Component<Props, {}> {
   public render(): JSX.Element {
     const {
       html,
-      autocopy,
-      autopause,
-      autosetTitle,
-      selectable,
-      tagStyle,
-      imgMode,
-      showWithAnimation,
-      animationDuration
+    //   autocopy,
+    //   autopause,
+    //   autosetTitle,
+    //   selectable,
+    //   tagStyle,
+    //   imgMode,
+    //   showWithAnimation,
+    //   animationDuration
     } = this.props;
 
-    let _html = html
+    let _html: any = html
     htmlParseToNodes(html, nodes => {
       _html = nodes
     })

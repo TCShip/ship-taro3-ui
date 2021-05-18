@@ -153,7 +153,7 @@ AtListItem.defaultProps = {
   thumb: '',
   isSwitch: false,
   hasBorder: true,
-  switchColor: '#6190E8',
+  switchColor: '#00C777',
   switchIsCheck: false,
   extraText: '',
   extraThumb: '',

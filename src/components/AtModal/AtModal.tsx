@@ -4,7 +4,7 @@ import PropTypes, {InferProps } from 'prop-types'
 // @ts-ignore 
 import { AtModalProps, AtModalState } from 'types/modal'
 import classNames from 'classnames'
-import { View, Text, Button, RichText } from '@tarojs/components';
+import { View, Text, Button } from '@tarojs/components';
 import _isFunction from 'lodash/isFunction'
 import { CommonEvent } from "@tarojs/components/types/common"
 import { handleTouchScroll } from '../../common/utils'
@@ -12,6 +12,7 @@ import AtComponent from '../../common/component';
 import AtModalHeader from '../AtModalHeader/AtModalHeader'
 import AtModalAction from '../AtModalAction/AtModalAction'
 import AtModalContent from '../AtModalContent/AtModalContent'
+import ParserRichText from '../ParserRichText/ParserRichText'
 
 export default class AtModal extends AtComponent<AtModalProps, AtModalState> {
     public static defaultProps: AtModalProps
@@ -102,7 +103,7 @@ export default class AtModal extends AtComponent<AtModalProps, AtModalState> {
                 <AtModalContent>
                     {
                         content && (<View className='content-simple'>
-                        { isWEB ? <Text dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br/>') }}></Text> : <RichText space='nbsp' nodes={content}></RichText> }
+                        { isWEB ? <Text dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br/>') }}></Text> : <ParserRichText html={content}></ParserRichText> }
                         </View>)
                     }
                     {

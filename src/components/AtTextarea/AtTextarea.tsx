@@ -2,7 +2,7 @@ import React from 'react';
 import Taro from '@tarojs/taro';
 import PropTypes, {InferProps } from 'prop-types'
 // @ts-ignore 
-import { AtTextareaProps } from 'types/textarea'
+import { AtTextareaProps, AtTextareaState } from 'types/textarea'
 import classNames from 'classnames'
 import { View, Textarea } from '@tarojs/components';
 import { CommonEvent } from '@tarojs/components/types/common'
@@ -24,13 +24,15 @@ function getMaxLength (
 const ENV = Taro.getEnv()
 initTestEnv()
 
-export default class AtTextarea extends AtComponent<AtTextareaProps> {
+export default class AtTextarea extends AtComponent<AtTextareaProps, AtTextareaState> {
   public static defaultProps: AtTextareaProps
   public static propTypes: InferProps<AtTextareaProps>
     
     constructor(props: AtTextareaProps) {
         super(props);
         this.state = {
+          isWEB: Taro.getEnv() === Taro.ENV_TYPE.WEB,
+          isALIPAY: Taro.getEnv() === Taro.ENV_TYPE.ALIPAY,
         };
     }
 
@@ -113,7 +115,7 @@ export default class AtTextarea extends AtComponent<AtTextareaProps> {
                   onConfirm={this.handleConfirm}
                   onLineChange={this.handleLinechange}
                 />
-                {count && (
+                {count && !this.state.isALIPAY && (
                 <View className='at-textarea__counter'>
                     {value.length}/{_maxLength}
                 </View>

@@ -62,6 +62,10 @@ export default {
         {
           src: 'src/styles',
           dest: 'dist'
+        },
+        {
+          src: 'src/assets',
+          dest: 'dist'
         }
       ],
       verbose: true
