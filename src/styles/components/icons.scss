@@ -30,6 +30,10 @@ $bg-color-light: #ECF5FD;
   -moz-osx-font-smoothing: grayscale;
 }
 
+.iconimage2vector:before {
+  content: "\e602";
+}
+
 .shipfont-iconduoxuanbunengxuan:before {
   content: "\e639";
 }
