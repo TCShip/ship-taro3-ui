@@ -26,7 +26,8 @@
   @include line();
 
   &:active {
-    opacity: $opacity-active;
+    // opacity: $opacity-active;
+    filter: brightness(85%);
   }
 
   /* elements */
