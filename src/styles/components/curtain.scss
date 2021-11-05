@@ -1,3 +1,4 @@
+@use "sass:math";
 @import '../variables/default.scss';
 @import '../mixins/index.scss';
 $at-curtain-btn-size: 56px;
@@ -35,7 +36,7 @@ $at-curtain-btn-size: 56px;
     position: absolute;
     width: $at-curtain-btn-size;
     height: $at-curtain-btn-size;
-    margin-left: -$at-curtain-btn-size / 2;
+    margin-left: math.div(-$at-curtain-btn-size, 2);
     left: 50%;
     bottom: -($at-curtain-btn-size + 24px);
     align-items: center;
@@ -67,7 +68,7 @@ $at-curtain-btn-size: 56px;
     }
 
     &--top {
-      margin-left: -$at-curtain-btn-size / 2;
+      margin-left: math.div(-$at-curtain-btn-size, 2);
       top: -($at-curtain-btn-size + 24px);
       left: 50%;
       bottom: auto;
@@ -87,7 +88,7 @@ $at-curtain-btn-size: 56px;
     }
 
     &--bottom {
-      margin-left: -$at-curtain-btn-size / 2;
+      margin-left: math.div(-$at-curtain-btn-size, 2);
       bottom: -($at-curtain-btn-size + 24px);
       left: 50%;
     }
