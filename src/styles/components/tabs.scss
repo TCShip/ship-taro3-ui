@@ -25,7 +25,7 @@ $at-tabs-pane-min-height: 100px;
 
     &-tip {
       position: absolute;
-      padding: math.div($spacing-h-sm, 2) $spacing-h-sm;
+      padding: $spacing-h-sm / 2 $spacing-h-sm;
       top: -26px;
       right: -24PX;
       color: $at-badge-color;

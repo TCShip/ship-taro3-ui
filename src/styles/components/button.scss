@@ -86,7 +86,7 @@
   }
 
   &--circle {
-    border-radius: math.div($at-button-height, 2);
+    border-radius: $at-button-height / 2;
     background-clip: border-box;
     overflow: hidden;
   }
@@ -101,7 +101,7 @@
     line-height: $at-button-height-sm - 2;
 
     &.at-button--circle {
-      border-radius: math.div($at-button-height-sm, 2);
+      border-radius: $at-button-height-sm / 2;
     }
   }
 
