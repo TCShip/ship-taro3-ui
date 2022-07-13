@@ -59,7 +59,7 @@ export default class Skeleton extends AtComponent<SkeletonProps> {
 
 
   addUnit(value?: string | number) {
-    return typeof value === 'number' ? Taro.pxTransform(value, 750) : value
+    return typeof value === 'number' ? Taro.pxTransform(value) : value
   }
  
   renderRows(): JSX.Element | null {

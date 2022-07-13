@@ -144,12 +144,12 @@ function getHeightToTop(offsetTop: number | undefined = 0, isTouch, SHIP_NAV_HEI
   if (isTouch) {
       top += SHIP_NAV_HEIGHT // M站导航栏的高度
   }
-  return Taro.pxTransform(top, 750)
+  return Taro.pxTransform(top)
 }
 
 function pxTransform(size: number): string {
     if (!size) return ''
-    return Taro.pxTransform(size, 750)
+    return Taro.pxTransform(size)
   }
 
   

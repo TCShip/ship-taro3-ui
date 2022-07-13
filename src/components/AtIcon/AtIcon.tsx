@@ -37,7 +37,7 @@ export default class AtIcon extends AtComponent<AtIconProps> {
           } = this.props
       
           const rootStyle = {
-            fontSize: `${Taro.pxTransform(parseInt(String(size)), 750)}`,
+            fontSize: `${Taro.pxTransform(parseInt(String(size)))}`,
             color
           }
       
